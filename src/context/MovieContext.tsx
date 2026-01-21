@@ -8,7 +8,6 @@ export type Movie = {
   imdbID: string;
   Title: string;
   Year: string;
-  Rating: number;
   Poster: string;
 };
 
