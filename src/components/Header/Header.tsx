@@ -118,12 +118,17 @@ const Header = () => {
                     </button>
                 </div>
                 {/* Right section: Search Input */}
-                <div className="relative w-full sm:w-64">
+                <div className="relative w-full sm:w-64"
+
+                    onMouseLeave={() => setShowPopup(!showPopup)}
+                    onMouseEnter={() => setShowPopup(!showPopup)}
+                >
                     <input
                         type="search"
                         className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-300"
                         placeholder="Search movies..."
                         value={query}
+
 
                         onChange={(e) => {
                             setQuery(e.target.value)
@@ -132,7 +137,9 @@ const Header = () => {
                     />
                     {/* Popup Dropdown */}
                     {showPopup && movies.length > 0 && (
-                        <div className="absolute top-full left-0 w-full bg-white border border-gray-300 rounded shadow-lg z-10 max-h-64 overflow-y-auto mt-1">
+                        <div className="absolute top-full left-0 w-full bg-white border border-gray-300 rounded shadow-lg z-10 max-h-64 overflow-y-auto mt-1"
+                        onMouseEnter={(e)=>e.stopPropagation()}
+                        >
                             {movies.map((movie: Movie) => (
                                 <div
                                     key={movie.imdbID}
